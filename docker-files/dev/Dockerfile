@@ -15,4 +15,8 @@ RUN apt-get update && apt-get install -y \
   build-essential \
 && rm -rf /var/lib/apt/lists/*
 
+# Install pip requirements
+ADD requirements.txt .
+RUN python -m pip install -r requirements.txt
+
 USER $NB_UID
