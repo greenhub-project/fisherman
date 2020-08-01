@@ -5,3 +5,5 @@ pandas
 pyarrow
 pymongo
 pyyaml
+jupyter_contrib_nbextensions
+autopep8

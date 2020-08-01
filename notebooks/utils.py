@@ -38,7 +38,7 @@ def correct_encoding(dictionary):
 
     return new
 
-def update_metadata(collection, df, page, exclude=['id']):
+def update_metadata(collection, df, exclude=['id']):
     df = df.drop(exclude, axis=1)
 
     numeric_stats, object_stats = {}, {}
@@ -53,7 +53,6 @@ def update_metadata(collection, df, page, exclude=['id']):
     except:
         pass
 
-    entry = {str(page): {**numeric_stats, **object_stats}}
-    entry = correct_encoding(entry)
+    entry = correct_encoding({**numeric_stats, **object_stats})
 
-    return collection.insert_one(entry)
+    return collection.update_one({}, {'$push': {'pages': entry}})
