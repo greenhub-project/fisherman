@@ -102,4 +102,5 @@ ENV/
 
 **/*.csv
 **/*.parquet
+**/*.pkl
 storage/

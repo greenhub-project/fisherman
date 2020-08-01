@@ -10,10 +10,12 @@ ENV PYTHONUNBUFFERED 1
 USER root
 
 RUN apt-get update && apt-get install -y \
-  python3-dev \
-  default-libmysqlclient-dev \
-  build-essential \
+    sqlite3 \
 && rm -rf /var/lib/apt/lists/*
+
+#   python3-dev \
+#   default-libmysqlclient-dev \
+#   build-essential \
 
 # Install pip requirements
 ADD requirements.txt .

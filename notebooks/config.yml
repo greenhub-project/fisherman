@@ -1,0 +1,7 @@
+DB_HOST: 193.136.66.17
+DB_PORT: 3306
+DB_DATABASE: greenhubfarmer
+DB_USERNAME: laradock
+DB_PASSWORD: M4NoHxyw0wuCZc7oPl1Z0jsn+uNG3hU/
+
+SQLITE_DATABASE: metadata.db
