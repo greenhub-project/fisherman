@@ -18,12 +18,14 @@ RUN apt-get update && apt-get install -y \
 #   build-essential \
 
 # Install pip requirements
-ADD requirements.txt .
-RUN python -m pip install -r requirements.txt
+ADD requirements/ .
+RUN python -m pip install -r requirements/base.txt
+RUN python -m pip install -r requirements/dev.txt
 
 USER $NB_UID
 
 RUN jupyter contrib nbextension install --user
+
 RUN jupyter nbextension enable contrib_nbextensions_help_item/main
 RUN jupyter nbextension enable autosavetime/main
 RUN jupyter nbextension enable codefolding/main

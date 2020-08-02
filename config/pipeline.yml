@@ -1,0 +1,9 @@
+tasks:
+  setup:
+    - 00_setup
+  once:
+    - settings
+  weekly:
+    - first
+    - second
+    - third
