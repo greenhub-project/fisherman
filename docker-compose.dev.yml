@@ -5,6 +5,9 @@ services:
     container_name: mongo-db
     image: mongo:4.4
     restart: always
+    volumes:
+      - ./storage/mongodb:/data/db
+      - ./logs/mongodb:/var/log/mongodb
     ports:
       - 27017:27017
     environment:

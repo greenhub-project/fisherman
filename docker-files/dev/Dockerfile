@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install -y \
 #   build-essential \
 
 # Install pip requirements
-ADD requirements/ .
+ADD requirements/ ./requirements
 RUN python -m pip install -r requirements/base.txt
 RUN python -m pip install -r requirements/dev.txt
 

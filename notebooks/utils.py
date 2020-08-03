@@ -1,4 +1,5 @@
 import re
+import sys
 import glob
 import numpy as np
 
@@ -38,7 +39,7 @@ def correct_encoding(dictionary):
 
     return new
 
-def update_metadata(collection, df, exclude=['id']):
+def update_page_metadata(collection, df, exclude=['id']):
     df = df.drop(exclude, axis=1)
 
     numeric_stats, object_stats = {}, {}
@@ -56,3 +57,9 @@ def update_metadata(collection, df, exclude=['id']):
     entry = correct_encoding({**numeric_stats, **object_stats})
 
     return collection.update_one({}, {'$push': {'pages': entry}})
+
+def optimize_dtypes(df, mappings):
+    string_columns = df.select_dtypes(include='object').columns.to_list()
+    df[string_columns] = df[string_columns].astype('category')
+    
+    return df.astype(mappings)
