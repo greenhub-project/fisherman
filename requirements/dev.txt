@@ -2,4 +2,4 @@ autopep8
 ipywidgets>=7.5
 jupyter_contrib_nbextensions
 kaleido
-plotly==4.9.0
+nbresuse

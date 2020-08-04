@@ -1,8 +1,14 @@
+dask
+numba
 numpy
 pandas
+plotly==4.9.0
 pyarrow
 pymongo
 pyyaml
 requests
+scikit-learn
 scrapy
 seaborn
+squarify
+tensorflow
