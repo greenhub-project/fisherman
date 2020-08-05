@@ -9,6 +9,7 @@ pyyaml
 requests
 scikit-learn
 scrapy
+BeautifulSoup
 seaborn
 squarify
 tensorflow
