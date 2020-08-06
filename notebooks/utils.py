@@ -7,7 +7,7 @@ def memory_usage(df, aggregate=True):
     memory = df.memory_usage(index=True, deep=True).sum() if aggregate else df.memory_usage(index=True, deep=True)
     return round(memory / 1024 ** 2, 2)
 
-def get_csv_files(filepath):
+def get_files(filepath):
     # natural order sorting
     return sorted(glob.glob(filepath), key=lambda x: int(re.findall(r'\d+', x)[0]))
 
@@ -55,6 +55,7 @@ def update_page_metadata(collection, df, exclude=['id']):
         pass
 
     entry = correct_encoding({**numeric_stats, **object_stats})
+    entry = {**entry, 'nrows': df.shape[0]}
 
     return collection.update_one({}, {'$push': {'pages': entry}})
 
