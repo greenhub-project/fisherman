@@ -7,7 +7,6 @@ services:
     restart: always
     volumes:
       - ./storage/mongodb:/data/db
-      - ./logs/mongodb:/var/log/mongodb
     ports:
       - 27017:27017
     environment:

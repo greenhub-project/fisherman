@@ -107,3 +107,4 @@ storage/
 logs/
 config/env.yml
 **/dask-worker-space/
+values.yml
