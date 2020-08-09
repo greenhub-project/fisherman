@@ -64,3 +64,12 @@ def optimize_dtypes(df, mappings):
     df[string_columns] = df[string_columns].astype('category')
     
     return df.astype(mappings)
+
+def int16_repr(x):
+    '''
+    settings mask:
+    ['screen_on', 'roaming_enabled', 'bluetooth_enabled', 'location_enabled',
+    'power_saver_enabled', 'nfc_enabled', 'developer_mode', 'wifi_enabled',
+    'mobile_enabled', 'wifi_active', 'mobile_active']
+    '''
+    return x.dot(1 << np.arange(x.shape[-1])).astype(np.uint16)
