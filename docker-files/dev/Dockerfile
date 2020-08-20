@@ -59,6 +59,10 @@ RUN conda install --quiet --yes \
 # Install e1071 R package (dependency of the caret R package)
 RUN conda install --quiet --yes r-e1071
 
+RUN jupyter labextension install jupyterlab-plotly@4.9.0 && \
+    jupyter labextension install @jupyter-widgets/jupyterlab-manager plotlywidget@4.9.0 && \
+    jupyter labextension install jupyterlab-execute-time
+
 RUN jupyter contrib nbextension install --user && \
     jupyter nbextension enable autosavetime/main && \
     jupyter nbextension enable code_prettify/autopep8 && \
@@ -67,7 +71,6 @@ RUN jupyter contrib nbextension install --user && \
     jupyter nbextension enable comment-uncomment/main && \
     jupyter nbextension enable contrib_nbextensions_help_item/main && \
     jupyter nbextension enable equation-numbering/main && \
-    jupyter nbextension enable execute_time/ExecuteTime && \
     jupyter nbextension enable hide_input/main  && \
     jupyter nbextension enable nbresuse && \
     jupyter nbextension enable spellchecker/main && \

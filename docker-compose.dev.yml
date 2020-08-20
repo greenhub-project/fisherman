@@ -33,9 +33,10 @@ services:
       dockerfile: ./docker-files/dev/Dockerfile
     depends_on:
       - mongo-db
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
     volumes:
       - ./data:/home/jovyan/data
-      - /media/hugo/DATA2/dataset-generator/data/app_processes:/home/jovyan/data/app_processes
       - ./config:/home/jovyan/config
       - ./notebooks:/home/jovyan/work
       - ./storage:/home/jovyan/storage
