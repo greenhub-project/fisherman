@@ -1,6 +1,5 @@
 beautifulsoup4
 dask
-numba
 numpy
 pandas
 plotly==4.9.0

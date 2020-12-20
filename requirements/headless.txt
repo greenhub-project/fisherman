@@ -1,0 +1,8 @@
+dask
+numpy
+pandas
+pyarrow
+pyyaml
+scikit-learn
+seaborn
+tensorflow
