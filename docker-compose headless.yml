@@ -1,0 +1,12 @@
+version: '3.4'
+
+services:
+  fisherman-headless:
+    image: fisherman-headless
+    build:
+      context: .
+      dockerfile: ./docker-files/headless/Dockerfile
+    volumes:
+      - ./src:/app
+      - ./config:/app/config
+      - ./storage:/app/storage

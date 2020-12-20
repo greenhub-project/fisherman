@@ -12,7 +12,6 @@ COPY requirements/headless.txt .
 RUN python -m pip install -r headless.txt
 
 WORKDIR /app
-COPY ./src /app
 
 # Switching to a non-root user, please refer to https://aka.ms/vscode-docker-python-user-rights
 RUN useradd appuser && chown -R appuser /app
