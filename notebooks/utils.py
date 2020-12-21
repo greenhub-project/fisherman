@@ -2,6 +2,7 @@ import re
 import sys
 import glob
 import numpy as np
+import pandas as pd
 
 def memory_usage(df, aggregate=True):
     memory = df.memory_usage(index=True, deep=True).sum() if aggregate else df.memory_usage(index=True, deep=True)
@@ -65,6 +66,10 @@ def optimize_dtypes(df, mappings):
     
     return df.astype(mappings)
 
+def downcast_dtypes(df, dtype, downcast):
+    df_selection = df.select_dtypes(include=dtype)
+    return df_selection.apply(pd.to_numeric, downcast=downcast)
+  
 def int16_repr(x):
     '''
     settings mask:
@@ -73,3 +78,4 @@ def int16_repr(x):
     'mobile_enabled', 'wifi_active', 'mobile_active']
     '''
     return x.dot(1 << np.arange(x.shape[-1])).astype(np.uint16)
+
